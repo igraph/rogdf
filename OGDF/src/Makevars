@@ -248,7 +248,7 @@ SOURCES=  orig/augmentation/DfsMakeBiconnected.cpp \
   orig/upward/UpwardPlanarSubgraphSimple.cpp \
   orig/upward/UpwardPlanRep.cpp \
   orig/upward/VisibilityLayout.cpp \
-  RcppExports.cpp \
+  rogdf_wrapper.cpp \
   rogdf.cpp
 OBJECTS=  orig/augmentation/DfsMakeBiconnected.o \
   orig/augmentation/PlanarAugmentation.o \
@@ -499,5 +499,5 @@ OBJECTS=  orig/augmentation/DfsMakeBiconnected.o \
   orig/upward/UpwardPlanarSubgraphSimple.o \
   orig/upward/UpwardPlanRep.o \
   orig/upward/VisibilityLayout.o \
-  RcppExports.o \
+  rogdf_wrapper.o \
   rogdf.o
