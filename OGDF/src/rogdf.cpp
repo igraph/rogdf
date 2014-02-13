@@ -1,5 +1,7 @@
 #include "rogdf.h"
 
+namespace rogdf {
+
 IntegerVector rogdf_version() {
 
   IntegerVector version = 
@@ -9,3 +11,5 @@ IntegerVector rogdf_version() {
   return version;
 
 }
+
+} // namespace rogdf

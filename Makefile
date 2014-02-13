@@ -6,12 +6,12 @@ OGDF/src/Makevars:
 	echo "PKG_CPPFLAGS=-I." > Makevars && \
         printf "%s" "SOURCES=" >> Makevars && \
         find orig -name "*.cpp" | sed 's/$$/ \\/' | sed 's/^/  /' >> Makevars
-	cd OGDF/src/ && echo "  RcppExports.cpp \\" >> Makevars
+	cd OGDF/src/ && echo "  rogdf_wrapper.cpp \\" >> Makevars
 	cd OGDF/src/ && echo "  rogdf.cpp" >> Makevars
 	cd OGDF/src/ && printf "%s" "OBJECTS=" >> Makevars && \
 	find orig -name "*.cpp" | sed 's/.cpp$$/.o \\/' | sed 's/^/  /' \
 	  >> Makevars
-	cd OGDF/src/ && echo "  RcppExports.o \\" >> Makevars
+	cd OGDF/src/ && echo "  rogdf_wrapper.o \\" >> Makevars
 	cd OGDF/src/ && echo "  rogdf.o" >> Makevars
 
 
