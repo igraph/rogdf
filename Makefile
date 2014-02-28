@@ -15,7 +15,9 @@ OGDF/src/Makevars:
 	  >> Makevars
 	cd OGDF/src/ && echo " " $(OBJECTS) >> Makevars
 
-OGDF/src/RcppExports.cpp: OGDF/src/rogdf.h
+OGDF/src/RcppExports.cpp: OGDF/src/rogdf.h OGDF/src/rogdf.cpp
 	R -e 'library(Rcpp); compileAttributes("OGDF")'
+	touch OGDF/src/RcppExports.cpp
+	touch OGDF/src/rogdf_wrapper.cpp
 
 .PHONY: all OGDF/src/Makevars

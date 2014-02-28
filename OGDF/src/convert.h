@@ -19,16 +19,12 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 
 // 02110-1301 USA
 
+#include <RcppCommon.h>
+#include <ogdf/basic/GraphAttributes.h>
+
+namespace Rcpp {
+  template <> ogdf::GraphAttributes as(SEXP igraph) ;
+  template <> SEXP wrap(const ogdf::GraphAttributes& ogdf_graph);
+}
+
 #include <Rcpp.h>
-using namespace Rcpp;
-
-#include <ogdf/misclayout/CircularLayout.h>
-using namespace ogdf;
-
-#include "convert.h"
-
-IntegerVector rogdf_version();
-
-NumericMatrix rogdf_circular_layout(GraphAttributes graph, 
-	 double minDistCircle, double minDistLevel,
-	 double minDistSibling, double minDistCC, double pageRatio);

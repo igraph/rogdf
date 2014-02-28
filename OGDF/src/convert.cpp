@@ -31,17 +31,17 @@
 #undef PROTECT
 #define PROTECT(x) Rf_protect(x)
 
-using namespace ogdf;
-
 namespace Rcpp {
-  template <> GraphAttributes as(SEXP igraph) {
+  template <> ogdf::GraphAttributes as(SEXP igraph) {
     SEXP from, to;
-    Graph *G=new Graph();
-    GraphAttributes GA(*G, GraphAttributes::nodeGraphics | 
-		          GraphAttributes::edgeGraphics);
-    Array<node> nodemap;
+    ogdf::Graph *G=new ogdf::Graph();
+    ogdf::GraphAttributes GA(*G, ogdf::GraphAttributes::nodeGraphics | 
+			     ogdf::GraphAttributes::edgeGraphics);
     int no_nodes=INTEGER(AS_INTEGER(VECTOR_ELT(igraph, 0)))[0];
-    
+    ogdf::Array<ogdf::node> nodemap(no_nodes);
+
+    // TODO: check argument!
+
     PROTECT(from=AS_INTEGER(VECTOR_ELT(igraph, 2)));
     PROTECT(to=AS_INTEGER(VECTOR_ELT(igraph, 3)));
 
@@ -51,12 +51,13 @@ namespace Rcpp {
     
     for (int i=0; i<no_nodes; i++) { nodemap[i] = G->newNode(i); }
     for (int e=0; e<no_edges; e++) { 
-      node u=nodemap[ ifrom[e] ];
-      node v=nodemap[ ito[e] ];
+      ogdf::node u=nodemap[ ifrom[e] ];
+      ogdf::node v=nodemap[ ito[e] ];
       G->newEdge(u, v); 
     }
     
     UNPROTECT(2);
     return GA;
   }
-}
+
+} // namespace Rcpp
