@@ -9,3 +9,7 @@ L_circular <- function(graph, minDistCircle = 20, minDistLevel = 20, minDistSibl
     .Call('OGDF_rogdf_circular_layout', PACKAGE = 'OGDF', graph, minDistCircle, minDistLevel, minDistSibling, minDistCC, pageRatio)
 }
 
+L_tree <- function(graph, siblingDistance = 20, subtreeDistance = 20, levelDistance = 50, treeDistance = 50, orthogonalLayout = FALSE, orientation = "topToBottom", selectRoot = "rootIsSource") {
+    .Call('OGDF_rogdf_tree_layout', PACKAGE = 'OGDF', graph, siblingDistance, subtreeDistance, levelDistance, treeDistance, orthogonalLayout, orientation, selectRoot)
+}
+

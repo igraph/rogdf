@@ -39,3 +39,25 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// rogdf_tree_layout
+NumericMatrix rogdf_tree_layout(GraphAttributes graph, double siblingDistance = 20, double subtreeDistance = 20, double levelDistance = 50, double treeDistance = 50, bool orthogonalLayout = false, Orientation orientation = topToBottom, TreeLayout::RootSelectionType selectRoot = TreeLayout::rootIsSource);
+RcppExport SEXP OGDF_rogdf_tree_layout(SEXP graphSEXP, SEXP siblingDistanceSEXP, SEXP subtreeDistanceSEXP, SEXP levelDistanceSEXP, SEXP treeDistanceSEXP, SEXP orthogonalLayoutSEXP, SEXP orientationSEXP, SEXP selectRootSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< GraphAttributes >::type graph(graphSEXP );
+        Rcpp::traits::input_parameter< double >::type siblingDistance(siblingDistanceSEXP );
+        Rcpp::traits::input_parameter< double >::type subtreeDistance(subtreeDistanceSEXP );
+        Rcpp::traits::input_parameter< double >::type levelDistance(levelDistanceSEXP );
+        Rcpp::traits::input_parameter< double >::type treeDistance(treeDistanceSEXP );
+        Rcpp::traits::input_parameter< bool >::type orthogonalLayout(orthogonalLayoutSEXP );
+        Rcpp::traits::input_parameter< Orientation >::type orientation(orientationSEXP );
+        Rcpp::traits::input_parameter< TreeLayout::RootSelectionType >::type selectRoot(selectRootSEXP );
+        NumericMatrix __result = rogdf_tree_layout(graph, siblingDistance, subtreeDistance, levelDistance, treeDistance, orthogonalLayout, orientation, selectRoot);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}

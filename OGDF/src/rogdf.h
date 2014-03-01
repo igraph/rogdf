@@ -32,3 +32,9 @@ IntegerVector rogdf_version();
 NumericMatrix rogdf_circular_layout(GraphAttributes graph, 
 	 double minDistCircle, double minDistLevel,
 	 double minDistSibling, double minDistCC, double pageRatio);
+
+NumericMatrix rogdf_tree_layout(GraphAttributes graph,
+	 double siblingDistance, double subtreeDistance,
+	 double levelDistance, double treeDistance,
+	 bool orthogonalLayout, Orientation orientation,
+	 TreeLayout::RootSelectionType selectRoot);

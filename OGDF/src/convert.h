@@ -21,10 +21,12 @@
 
 #include <RcppCommon.h>
 #include <ogdf/basic/GraphAttributes.h>
+#include <ogdf/tree/TreeLayout.h>
 
 namespace Rcpp {
-  template <> ogdf::GraphAttributes as(SEXP igraph) ;
-  template <> SEXP wrap(const ogdf::GraphAttributes& ogdf_graph);
+  template <> ogdf::GraphAttributes as(SEXP igraph);
+  template <> ogdf::Orientation as(SEXP orientation);
+  template <> ogdf::TreeLayout::RootSelectionType as(SEXP selectRoot);
 }
 
 #include <Rcpp.h>

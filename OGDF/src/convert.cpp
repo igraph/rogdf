@@ -60,4 +60,35 @@ namespace Rcpp {
     return GA;
   }
 
+  template <> ogdf::Orientation as(SEXP orientation) {
+    CharacterVector ori=as<CharacterVector>(orientation);
+    if (!strcmp(ori[0], "topToBottom")) {
+      return ogdf::topToBottom;
+    } else if (!strcmp(ori[0], "bottomToTop")) {
+      return ogdf::bottomToTop;
+    } else if (!strcmp(ori[0], "leftToRight")) {
+      return ogdf::leftToRight;
+    } else if (!strcmp(ori[0], "rightToLeft")) {
+      return ogdf::rightToLeft;
+    } else {
+      // FIXME: error
+      return ogdf::topToBottom;
+    }
+  }
+
+  template <> ogdf::TreeLayout::RootSelectionType as(SEXP selectRoot) {
+    ogdf::TreeLayout::RootSelectionType result;
+    CharacterVector rs=as<CharacterVector>(selectRoot);
+    if (!strcmp(rs[0], "rootIsSource")) {
+      return ogdf::TreeLayout::rootIsSource;
+    } else if (!strcmp(rs[0], "rootIsSink")) {
+      return ogdf::TreeLayout::rootIsSink;
+    } else if (!strcmp(rs[0], "rootByCoord")) {
+      return ogdf::TreeLayout::rootByCoord;
+    } else {
+      // FIXME: error
+      return ogdf::TreeLayout::rootIsSource;
+    }
+  }
+
 } // namespace Rcpp
