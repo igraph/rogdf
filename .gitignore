@@ -1,6 +1,3 @@
 *~
 *.o
 /OGDF/src/OGDF.so
-/OGDF/R/RcppExports.R
-/OGDF/src/RcppExports.cpp
-/OGDF/src/Makevars
