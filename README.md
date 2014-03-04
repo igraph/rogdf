@@ -29,16 +29,26 @@ install_github("igraph/rogdf/OGDF")
 ```
 library(OGDF)
 library(igraph)
+```
 
+```
 g <- graph.star(10)
 plot(g, layout=L_circular(g))
+```
 
+![Star graph](img/sc1.png)
+
+```
 g <- erdos.renyi.game(100, 1/100)
 l <- L_circular(g)
 plot(g, layout=l, vertex.size=3, vertex.label=NA)
+```
 
-######
+![Random graph](img/sc2.png)
 
+```
 g <- graph.tree(20, 3)
 plot(g, layout=L_tree(g))
 ```
+
+![Tree graph](img/sc3.png)
