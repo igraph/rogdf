@@ -3,7 +3,7 @@
 
 ### OGDF
 
-[http://www.ogdf.net](OGDF) is a self-contained C++ class library for
+[OGDF](http://www.ogdf.net) is a self-contained C++ class library for
 the automatic layout of diagrams. OGDF offers sophisticated algorithms
 and data structures to use within your own applications or scientific
 projects. The library is available under the GNU General Public
@@ -15,7 +15,7 @@ University of Cologne, University of Sydney and oreas GmbH.
 ### Installation
 
 Until the OGDF R package makes it into
-[http://cran.r-project.org/](CRAN), you can install it directly
+[CRAN](http://cran.r-project.org), you can install it directly
 from github, using the `devtools` package:
 
 ```
