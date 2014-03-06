@@ -7,6 +7,17 @@ IntegerVector rogdf_version() {
 			       _["patch"] = 0);
 }
 
+NumericMatrix rogdf_get_layout(GraphAttributes &GA) {
+  Graph G=GA.constGraph();
+  NumericMatrix coords(G.numberOfNodes(), 2);
+  int i; node v;
+  for(i=0, v=G.firstNode(); v; i++, v=v->succ())  {
+    coords(i, 0) = GA.x(v);
+    coords(i, 1) = GA.y(v);
+  }
+  return coords;
+}
+
 // [[Rcpp::export("L_circular")]]  
 NumericMatrix rogdf_circular_layout(GraphAttributes graph, 
 	 double minDistCircle=20, double minDistLevel=20, 
@@ -19,19 +30,7 @@ NumericMatrix rogdf_circular_layout(GraphAttributes graph,
   layout.minDistCC(minDistCC);
   layout.pageRatio(pageRatio);
   layout.call(graph);
-
-  Graph ugraph=graph.constGraph();
-  int no_nodes=ugraph.numberOfNodes();
-  NumericMatrix coords(no_nodes, 2);
-  List<node> nodes;
-  ListIterator<node> it;
-  int i;
-  ugraph.allNodes(nodes);
-  for (i=0, it=nodes.begin(); i < no_nodes; i++, it++) {
-    coords(i, 0) = graph.x(*it);
-    coords(i, 1) = graph.y(*it);
-  }
-  return coords;
+  return rogdf_get_layout(graph);
 }
 
 // [[Rcpp::export("L_tree")]]
@@ -51,17 +50,5 @@ NumericMatrix rogdf_tree_layout(GraphAttributes graph,
   layout.orientation(orientation);
   layout.rootSelection(selectRoot);
   layout.call(graph);
-
-  Graph ugraph=graph.constGraph();
-  int no_nodes=ugraph.numberOfNodes();
-  NumericMatrix coords(no_nodes, 2);
-  List<node> nodes;
-  ListIterator<node> it;
-  int i;
-  ugraph.allNodes(nodes);
-  for (i=0, it=nodes.begin(); i < no_nodes; i++, it++) {
-    coords(i, 0) = graph.x(*it);
-    coords(i, 1) = graph.y(*it);
-  }
-  return coords;
+  return rogdf_get_layout(graph);
 }
