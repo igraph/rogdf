@@ -13,3 +13,7 @@ L_tree <- function(graph, siblingDistance = 20, subtreeDistance = 20, levelDista
     .Call('OGDF_rogdf_tree_layout', PACKAGE = 'OGDF', graph, siblingDistance, subtreeDistance, levelDistance, treeDistance, orthogonalLayout, orientation, selectRoot)
 }
 
+L_fmmm <- function(graph, options = L_fmmm_options ) {
+    .Call('OGDF_rogdf_fmmm_layout', PACKAGE = 'OGDF', graph, options)
+}
+

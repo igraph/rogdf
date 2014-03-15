@@ -61,3 +61,19 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// rogdf_fmmm_layout
+NumericMatrix rogdf_fmmm_layout(GraphAttributes graph, ROGDF_FMMM_Options options = ROGDF_FMMM_Options()  				/* @R L_fmmm_options */);
+RcppExport SEXP OGDF_rogdf_fmmm_layout(SEXP graphSEXP, SEXP optionsSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< GraphAttributes >::type graph(graphSEXP );
+        Rcpp::traits::input_parameter< ROGDF_FMMM_Options >::type options(optionsSEXP );
+        NumericMatrix __result = rogdf_fmmm_layout(graph, options);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}

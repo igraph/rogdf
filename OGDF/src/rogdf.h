@@ -19,10 +19,14 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 
 // 02110-1301 USA
 
+#ifndef ROGDF_H
+#define ROGDF_H
+
 #include <Rcpp.h>
 using namespace Rcpp;
 
 #include <ogdf/misclayout/CircularLayout.h>
+#include <ogdf/energybased/FMMMLayout.h>
 using namespace ogdf;
 
 #include "convert.h"
@@ -38,3 +42,5 @@ NumericMatrix rogdf_tree_layout(GraphAttributes graph,
 	 double levelDistance, double treeDistance,
 	 bool orthogonalLayout, Orientation orientation,
 	 TreeLayout::RootSelectionType selectRoot);
+
+#endif
